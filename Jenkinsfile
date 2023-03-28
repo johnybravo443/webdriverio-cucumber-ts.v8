@@ -1,3 +1,5 @@
+def NAME = 'James Bond'
+
 pipeline {
     agent any
 
@@ -22,12 +24,18 @@ pipeline {
                 echo 'test...'
                 sh 'node -v'
                 sh 'npm -v'
+                echo "Name is ${NAME}"
             }
         }
 
         stage("deploy") {
             steps {
                 echo 'deploy...'
+                echo "Branch name is: ${BRANCH_NAME}"
+                withCredentials([usernamePassword(credentialsId: 'localadmin', passwordVariable: 'PWD', usernameVariable: 'USER')]) {
+                    echo "Username is: ${USER}"
+                    echo "Password is: ${PWD}"
+                }
             }
         }
     }
