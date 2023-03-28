@@ -11,6 +11,10 @@ pipeline {
         SECRET_TEXT = credentials('secrettext')
     }
 
+    parameters {
+        choice(name: 'CUCUMBER_TAGS', choices: ['all','contactus','dropradiocheck','iframe'], description: 'choose the cucumber tags to run')
+    }
+
     stages {
         stage("build") {
             steps {
@@ -25,6 +29,7 @@ pipeline {
                 sh 'node -v'
                 sh 'npm -v'
                 echo "Name is ${NAME}"
+                sh "npx wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@${params.CUCUMBER_TAGS}'"
             }
         }
 
