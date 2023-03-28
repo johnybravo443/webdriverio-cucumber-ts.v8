@@ -1,0 +1,31 @@
+{
+  "name": "webdriverio-cucumber-ts-v8",
+  "version": "1.0.0",
+  "description": "webdriverio cucumber typescript allure",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "contactus": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@contactus'",
+    "dropdown": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dropradiocheck'",
+    "iframe": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@iframe'",
+    "all": "wdio run ./wdio.conf.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.3.5",
+    "@wdio/cli": "^8.3.5",
+    "@wdio/cucumber-framework": "^8.3.0",
+    "@wdio/local-runner": "^8.3.5",
+    "@wdio/spec-reporter": "^8.3.0",
+    "allure-commandline": "^2.21.0",
+    "chromedriver": "^110.0.0",
+    "expect-webdriverio": "^4.1.1",
+    "fs-extra": "^11.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "wdio-chromedriver-service": "^8.0.1",
+    "wdio-wait-for": "^3.0.2"
+  }
+}
