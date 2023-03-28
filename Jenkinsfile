@@ -2,10 +2,7 @@ pipeline {
     agent any
 
     tools {
-        node 'node-18.13.0'
-    }
-
-    options {
+        nodejs 'node-18.13.0'
     }
 
     environment {
@@ -23,6 +20,8 @@ pipeline {
         stage("test") {
             steps{
                 echo 'test...'
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
 
