@@ -29,6 +29,7 @@ pipeline {
                 sh 'node -v'
                 sh 'npm -v'
                 echo "Name is ${NAME}"
+                sh "npm install"
                 sh "npx wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@${params.CUCUMBER_TAGS}'"
             }
         }
